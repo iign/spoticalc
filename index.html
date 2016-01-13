@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Spoticalc</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Spoticalc · Spotify bandwidth usage calculator">
+
+  <link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <main id="app" class="content">
+
+    <h1 class="main-title"><img class="logo" src="img/spoticalc.svg" alt="Spoticalc"> Spoticalc</h1>
+    <h2 class="subhead">Spotify bandwidth usage calculator</h2>
+
+    <hr>
+    <form v-on:submit.prevent class="pure-form">
+
+        <div class="control-group">
+          <label class="label" for="plan">Data Plan</label>
+          <input autofocus class="plan" value="0" v-on:keyup="onKeyUp" v-on:change="onKeyUp" id="plan" type="number" min="1" max="16"
+                   maxlength="2" step="1" placeholder="1"> GB / month
+        </div>
+
+        <div class="control-group">
+          <label class="label" for="quality">
+            Streaming Quality
+            <a target="_" href="https://support.spotify.com/is/learn-more/faq/#!/article/What-bitrate-does-Spotify-use-for-streaming">[?]</a>
+          </label>
+
+          <select v-on:change="onKeyUp" id="quality">
+              <option value="0.012">Normal (96 Kbps)</option>
+              <option value="0.02">High (160 Kbps)</option>
+              <option value="0.04">Extreme (320 Kbps)</option>
+          </select>
+        </div>
+
+        <h3 class="result">
+          You can listen to
+          <span v-text="result" class="result__hours">...</span> hours
+          of music on Spotify.
+        </h3>
+        <h4 class="result">(That's about <span v-text="daily" class="daily">...</span> hours every day)</h4>
+
+    </form>
+
+
+  </main>
+
+  <footer class="footer">
+    Crafted with ♥ by <a href="http://twitter.com/iign">@iign</a><br>
+    <em>Spoticalc</em> is not endorsed, certified or otherwise approved in any way by Spotify.
+    Spotify is the registered trade mark of Spotify Ltd.
+  </footer>
+
+  <script src="node_modules/vue/dist/vue.min.js"></script>
+  <script src="app.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38503708-9', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+</html>

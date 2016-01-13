@@ -1,0 +1,15 @@
+{
+  "name": "spoticalc",
+  "version": "1.0.0",
+  "description": "Spotify data calculator",
+  "main": "index.js",
+  "dependencies": {
+    "vue": "^1.0.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ignacio Toledo <ignacio@ign.uy>",
+  "license": "MIT"
+}

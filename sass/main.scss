@@ -1,0 +1,96 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+$green : #26D34E;
+
+.content{
+  padding-left: 2em;
+  padding-right: 2em;
+  text-align: center;
+}
+
+html{
+  font-family: 'Montserrat', sans-serif;
+  background-color: #2e2f33;
+  color: white;
+}
+
+.logo{
+  width: 50px;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.main-title{
+  color: $green;
+  font-size: 3em;
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+
+.control-group{
+  margin-bottom: 15px;
+}
+
+.label{
+  margin-bottom: 5px;
+  display: block;
+  color: #BBBBBB;
+  font-weight: normal;
+}
+
+.subhead{
+  font-weight: normal;
+  font-size: 1em;
+}
+
+input.plan{
+  display: inline-block !important;
+}
+
+input, select{
+  color: #2e2f33;
+}
+
+hr{
+  margin-bottom: 30px;
+}
+
+.result__hours{
+  color: $green;
+  font-size: 4em;
+  display: block;
+  font-weight: bold;
+}
+
+.daily{
+  color: $green;
+  font-weight: bold;
+}
+
+.result{
+  font-weight: normal;
+}
+
+.footer{
+  padding: 2em;
+  font-size: .8em;
+  font-weight: normal;
+  color: #BDBDBD;
+  width: 100%;
+  border-top: 1px solid #383838;
+  margin-top: 60px;
+  @media (min-height: 650px) {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+a{
+  color: $green;
+  text-decoration: none;
+}
