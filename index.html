@@ -11,6 +11,7 @@
 	<link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
 	<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
   <link rel="stylesheet" href="css/main.css">
@@ -22,50 +23,57 @@
 </head>
 
 <body>
-  <main id="app" class="content">
-
+  <header class="header">
     <h1 class="main-title"><img class="logo" src="img/spoticalc.svg" alt="Spoticalc"> Spoticalc</h1>
-    <h2 class="subhead">Spotify bandwidth usage calculator</h2>
+  </header>
+  <div class="wrapper">
+    <div class="container">
+      <h2 class="subhead">Spotify bandwidth usage calculator</h2>
+    </div>
+    <main id="app" class="content">
+      <form v-on:submit.prevent class="pure-form">
 
-    <hr>
-    <form v-on:submit.prevent class="pure-form">
+          <div class="control-group">
+            <label class="label" for="plan">Data Plan (GBs/month)</label>
+            <input autofocus class="plan" value="0" v-on:keyup="onKeyUp" v-on:change="onKeyUp" id="plan" type="number" min="1"
+                   maxlength="3" step="1" placeholder="5">
+          </div>
 
-        <div class="control-group">
-          <label class="label" for="plan">Data Plan</label>
-          <input autofocus class="plan" value="0" v-on:keyup="onKeyUp" v-on:change="onKeyUp" id="plan" type="number" min="1" max="16"
-                   maxlength="2" step="1" placeholder="1"> GB / month
-        </div>
+          <div class="control-group">
+            <label class="label" for="quality">
+              Streaming Quality
+              <a target="_" href="https://support.spotify.com/is/learn-more/faq/#!/article/What-bitrate-does-Spotify-use-for-streaming">[?]</a>
+            </label>
 
-        <div class="control-group">
-          <label class="label" for="quality">
-            Streaming Quality
-            <a target="_" href="https://support.spotify.com/is/learn-more/faq/#!/article/What-bitrate-does-Spotify-use-for-streaming">[?]</a>
-          </label>
+            <select v-on:change="onKeyUp" id="quality">
+                <option value="0.012">Normal (96 Kbps)</option>
+                <option value="0.02">High (160 Kbps)</option>
+                <option value="0.04">Extreme (320 Kbps)</option>
+            </select>
+          </div>
 
-          <select v-on:change="onKeyUp" id="quality">
-              <option value="0.012">Normal (96 Kbps)</option>
-              <option value="0.02">High (160 Kbps)</option>
-              <option value="0.04">Extreme (320 Kbps)</option>
-          </select>
-        </div>
+          <div class="results">
+            <h3 class="result">
+              You can listen to
+              <span v-text="result" class="result__hours">...</span> hours
+              of music on Spotify.
+            </h3>
+            <h4 class="more">(That's about <span v-text="daily" class="daily">...</span> hours every day)</h4>
+          </div>
 
-        <h3 class="result">
-          You can listen to
-          <span v-text="result" class="result__hours">...</span> hours
-          of music on Spotify.
-        </h3>
-        <h4 class="result">(That's about <span v-text="daily" class="daily">...</span> hours every day)</h4>
-
-    </form>
+      </form>
 
 
-  </main>
+    </main>
+    <div class="container crafted">
+      Crafted with ❤️ by <a href="http://twitter.com/iign">@iign</a> / View <a href="https://github.com/iign/spoticalc">Source</a><br>
+    </div>
 
-  <footer class="footer">
-    Crafted with ♥ by <a href="http://twitter.com/iign">@iign</a> / View <a href="https://github.com/iign/spoticalc">Source</a><br>
-    <em>Spoticalc</em> is not endorsed, certified or otherwise approved in any way by Spotify.
-    Spotify is the registered trade mark of Spotify Ltd.
-  </footer>
+    <footer class="footer">
+      <em>Spoticalc</em> is not endorsed, certified or otherwise approved in any way by Spotify.
+      Spotify is the registered trade mark of Spotify Ltd.
+    </footer>
+  </div>
 
   <script src="node_modules/vue/dist/vue.min.js"></script>
   <script src="app.js"></script>
