@@ -42,7 +42,7 @@
               v-model="quality"
               class="block appearance-none w-full bg-gray-300 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             >
-              <option value="96">Low (24 Kbps)</option>
+              <option value="24">Low (24 Kbps)</option>
               <option value="96">Normal (96 Kbps)</option>
               <option value="160">High (160 Kbps)</option>
               <option value="320">Very High (320 Kbps)</option>
