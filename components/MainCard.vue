@@ -2,24 +2,27 @@
   <div class="m-auto">
     <div class="max-w-sm rounded overflow-hidden shadow-xl">
       <div class="px-6 py-4">
-        <p class="text-gray-700 text-base mb-10">
+        <p class="text-gray-700 text-base mb-8">
           Enter your data plan capacity and select a streaming quality to
-          calculate how much Spotify you can listen on a given month.
+          calculate how much Spotify you can listen on a given month:
         </p>
         <div class="mb-4">
           <label
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-state"
+            for="input-dataplan"
           >
             Data plan (GBs/month)
           </label>
           <input
+            id="input-dataplan"
             v-model="dataplan"
             class="block appearance-none w-full bg-gray-300 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             type="number"
             min="1"
+            max="99"
             autofocus
             step="1"
+            @keyup="validateDataPlan"
           />
         </div>
         <div class="mb-4">
@@ -66,13 +69,22 @@
           <p>
             You can Listen to
           </p>
-          <div class="text-6xl font-bold text-green-500">{{ monthly }}</div>
+          <div class="text-6xl font-bold text-green-500">
+            <span v-if="monthly > 0">{{ monthly }}</span>
+            <span v-else>—</span>
+          </div>
           <p>
             hours of music on Spotify!
           </p>
-          <p>
-            <span class="text-gray-600 text-sm"
-              >(That's about <span>{{ daily }}</span> hours per day)</span
+          <p class="text-gray-600 text-sm">
+            <span v-if="daily < 0">Enter a valid data plan!</span>
+            <span v-else-if="daily < 24">
+              (That's about
+              <strong class="text-green-500">{{ daily }}</strong> hours per
+              day)</span
+            >
+            <span v-else-if="daily > 24"
+              >(That's more than you can hear in a day!)</span
             >
           </p>
         </div>
@@ -91,9 +103,6 @@ export default {
   },
   computed: {
     monthly() {
-      // kbs in plan = 80000000
-      // 1GB >
-
       const kbInPlan = this.dataplan * 8000000
       const totalSeconds = kbInPlan / this.quality
       const totalHours = totalSeconds / 3600
@@ -103,6 +112,13 @@ export default {
     daily() {
       const daily = this.monthly / 30
       return daily.toFixed(1)
+    }
+  },
+  methods: {
+    validateDataPlan() {
+      if (this.dataplan > 99) {
+        this.dataplan = 99
+      }
     }
   }
 }

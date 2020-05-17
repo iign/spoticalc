@@ -6,6 +6,13 @@
         <MainCard />
       </div>
     </div>
+    <div
+      class="fixed bottom-0 right-0 mb-2 mr-2 text-gray-800 text-xs bg-teal-200
+             py-1 px-3 rounded-full shadow-md"
+    >
+      Built with Nuxt.js + Tailwind CSS by
+      <a class="text-green-900 underline" href="https://ign.uy">@iign</a>
+    </div>
   </div>
 </template>
 
