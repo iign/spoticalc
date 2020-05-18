@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="antialiased text-gray-900">
-    <div class="bg-gray-100 min-h-screen">
+    <div class="bg-gray-200 min-h-screen">
       <Navbar />
-      <div class="flex h-screen pt-12">
+      <div class="flex min-h-screen pt-12">
         <MainCard />
       </div>
     </div>

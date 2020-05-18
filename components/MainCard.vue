@@ -1,6 +1,6 @@
 <template>
   <div class="m-auto">
-    <div class="max-w-sm rounded overflow-hidden shadow-xl mb-6">
+    <div class="max-w-sm rounded overflow-hidden sm:shadow-xl mb-6 bg-white">
       <div class="px-6 py-4">
         <p class="text-gray-700 text-base mb-8">
           Enter your data plan capacity and select a streaming quality to

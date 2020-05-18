@@ -1,6 +1,6 @@
 <template>
   <header
-    class="flex fixed w-full items-center justify-between px-4 py-3 bg-gray-900"
+    class="flex fixed z-10 w-full items-center justify-between px-4 py-3 bg-gray-900"
   >
     <svg
       width="30"
