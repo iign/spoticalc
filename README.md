@@ -1,6 +1,8 @@
 # Spoticalc
 
-> Spotify bandwidth calculator
+Spotify bandwidth calculator
+
+![Spoticalc preview](https://github.com/iign/spoticalc/blob/master/static/spoticalc.png?raw=true "Spoticalc")
 
 ## Build Setup
 
