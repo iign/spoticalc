@@ -1,6 +1,6 @@
 <template>
   <div class="m-auto">
-    <div class="max-w-sm rounded overflow-hidden shadow-xl">
+    <div class="max-w-sm rounded overflow-hidden shadow-xl mb-6">
       <div class="px-6 py-4">
         <p class="text-gray-700 text-base mb-8">
           Enter your data plan capacity and select a streaming quality to
@@ -89,6 +89,13 @@
           </p>
         </div>
       </div>
+    </div>
+    <div
+      class="md:block md:fixed relative xs bottom-0 right-0 md:mb-2 md:mr-2
+             text-white text-xs bg-green-600 p-1 px-3 rounded-full mx-2 text-center"
+    >
+      Built with Nuxt.js + Tailwind by
+      <a class="text-white" href="https://ign.uy">@iign</a>
     </div>
   </div>
 </template>
